@@ -30,34 +30,33 @@
                             <div class="modal-body">
                                 <span class="description-model">Approval Title</span>
                                 <span class="err-message-model">*</span>
-                                <div class="center con-selects mt-2">
-                                    <vs-select
-                                        filter
-                                        placeholder="Creator"
-                                        v-model="creator"
-                                    >
-                                        <vs-option label="Vuesax" value="1">
-                                            Vuesax
-                                        </vs-option>
-                                        <vs-option label="Vue" value="2">
-                                            Vue
-                                        </vs-option>
-                                        <vs-option label="Javascript" value="3">
-                                            Javascript
-                                        </vs-option>
-                                        <vs-option label="Sass" value="4">
-                                            Sass
-                                        </vs-option>
-                                        <vs-option label="Typescript" value="5">
-                                            Typescript
-                                        </vs-option>
-                                        <vs-option label="Webpack" value="6">
-                                            Webpack
-                                        </vs-option>
-                                        <vs-option label="Nodejs" value="7">
-                                            Nodejs
-                                        </vs-option>
-                                    </vs-select>
+                                <div class="select-dropdown">
+                                    <select :name="name" :id="id" ref="input" v-model="value">
+                                        <option v-for="option in options" :value="option.value">
+                                            {{ option.text }}
+                                        </option>
+                                    </select>
+                                    <div class="select-box" v-on:click="status = !status">
+                                <span class="value" @click="toggleFocus">
+                                    {{ [ null, '' ].includes(value) ? placeholder : findText(value)}}
+                                </span>
+                                        <span class="toggle" >
+                                    <i v-if="status" class='bx bx-chevron-down' ></i>
+                                    <i v-else class='bx bx-chevron-up'></i>
+                                </span>
+                                    </div>
+                                    <div class="options" v-if="focused">
+                                        <ul>
+                                            <li
+                                                v-for="option in options"
+                                                @click="selectOption(option.value)"
+                                                :data-value="option.value"
+                                                :class="{selected: value === option.value}"
+                                            >
+                                                {{ option.text }}
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -180,13 +179,48 @@ export default {
         return {
             active: "home",
             creator: '',
-            status:''
+            status:'',
+
+            id: "test",
+            name: "test",
+            placeholder: "Status",
+            useRealInput: false,
+            value: "",
+            focused: false,
+            options: [
+                { value: 1, text: "Option 1" },
+                { value: 2, text: "Option 2" },
+                { value: 3, text: "Option 3" },
+            ],
         }
 
     },
+
     methods: {
+
         makeActive: function (item) {
             this.active = item;
+        },
+
+        toggleFocus() {
+            if (this.useRealInput) {
+                this.$refs.input.focus();
+            } else {
+                this.focused = !this.focused;
+            }
+        },
+        selectOption(value) {
+            if (value !== this.value) {
+                this.value = value;
+                this.$refs.input.value = value;
+                this.toggleFocus();
+            }
+        },
+        findText(value) {
+            const option = this.options.filter((option) => {
+                if (option.value === value) return true;
+            })[0];
+            return option === undefined ? "" : option.text;
         },
     },
 }

@@ -4,7 +4,7 @@
             <div class="header-search-processing col-sm-6 col-md-8 col-lg-8">
                 <div class="search_template">
                     <input type="text" placeholder="Enter template name">
-                    <i class='bx bx-search-alt icon-search-one '></i>
+                    <i class='bx bx-search-alt icon-search-one'></i>
                 </div>
                 <div class="search_template">
                     <input type="text" placeholder="Creator">
@@ -16,7 +16,7 @@
                 <div class="icon-date"></div>
                 <input type="date">
             </div>
-            
+
         </div>
 
         <div class="row mt-5">
@@ -24,11 +24,41 @@
                 <table class="table table-responsive class-table-view-template " style="display:inline-table;">
                     <thead class="thead-light">
                     <tr>
-                        <th class=" border table-secondary">Approval Title</th>
-                        <th class="text-center border table-secondary">Creator</th>
-                        <th class="text-center border table-secondary">Action</th>
-                        <th class="text-center border table-secondary">Action</th>
-                        <th class="text-center border table-secondary">Action</th>
+                        <th class=" border ">
+                            <button v-on:click="sort_name = !sort_name" class="sort-button">
+                                <span>Approval title</span>
+                                <i v-if="sort_name" class='bx bx-sort-down'></i>
+                                <i v-else class='bx bx-sort-up' ></i>
+                            </button>
+                        </th>
+                        <th class="text-center border table-secondary">
+                            <button v-on:click="sort_creator = !sort_creator" class="sort-button">
+                                <span>Creator</span>
+                                <i v-if="sort_creator" class='bx bx-sort-down'></i>
+                                <i v-else class='bx bx-sort-up' ></i>
+                            </button>
+                        </th>
+                        <th class="text-center border table-secondary">
+                            <button v-on:click="sort_date = !sort_date" class="sort-button">
+                                <span>Sending Time</span>
+                                <i v-if="sort_date" class='bx bx-sort-down'></i>
+                                <i v-else class='bx bx-sort-up' ></i>
+                            </button>
+                        </th>
+                        <th class="text-center border table-secondary">
+
+                            <button v-on:click="sort_time = !sort_time" class="sort-button">
+                                <span>Evaluation Time</span>
+                                <i v-if="sort_time" class='bx bx-sort-down'></i>
+                                <i v-else class='bx bx-sort-up' ></i>
+                            </button>
+                        </th>
+                        <th class="text-center border table-secondary">
+
+                            <button v-on:click="sort_date = !sort_date" class="sort-button">
+                                <span>Action</span>
+                            </button>
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -135,7 +165,15 @@
 import Button from "../Atomic/Button";
 export default {
     name: "ProcessingRequset",
-    components: {Button}
+    components: {Button},
+    data() {
+        return {
+            sort_name:true,
+            sort_creator:true,
+            sort_date:true,
+            sort_time:true,
+        }
+    }
 }
 </script>
 

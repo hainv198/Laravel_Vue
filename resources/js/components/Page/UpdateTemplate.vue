@@ -77,7 +77,7 @@
                     <label class="p-2 mt-3">Approver</label><span>*</span>
                     <div class="detail-approver">
                         <div class="row input-filter">
-                            <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+<!--                            <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
                                 <div class="dropdown-component">
                                     <label for="btn" class="button">Drop down
                                         <span>
@@ -86,9 +86,6 @@
                                     </label>
                                     <input type="checkbox" id="btn">
                                     <ul class="menu">
-                                        <!--                                        <li>-->
-                                        <!--                                            <a href="#">Home</a>-->
-                                        <!--                                        </li>-->
                                         <li>
                                             <label for="btn-2" class="first">Features
                                                 <span>
@@ -112,8 +109,6 @@
                                                 <li><a href="#">App Design</a></li>
                                             </ul>
                                         </li>
-                                        <!--                                        <li><a href="#">Contact</a></li>-->
-                                        <!--                                        <li><a href="#">Feedback</a></li>-->
                                     </ul>
                                 </div>
                             </div>
@@ -160,11 +155,74 @@
                                     </div>
 
                                 </div>
+                            </div>-->
+                            <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                                <div class="center con-selects">
+                                    <vs-select
+                                        filter
+                                        placeholder="Select organization"
+                                        v-model="SelectOrganization"
+                                    >
+                                        <vs-option label="HN" value="1">
+                                            HN
+                                        </vs-option>
+
+                                        <vs-option label="Vue" value="2">
+                                            Vue
+                                        </vs-option>
+                                        <vs-option label="Javascript" value="3">
+                                            Javascript
+                                        </vs-option>
+                                        <vs-option label="Sass" value="4">
+                                            Sass
+                                        </vs-option>
+                                        <vs-option label="Typescript" value="5">
+                                            Typescript
+                                        </vs-option>
+                                        <vs-option label="Webpack" value="6">
+                                            Webpack
+                                        </vs-option>
+                                        <vs-option label="Nodejs" value="7">
+                                            Nodejs
+                                        </vs-option>
+                                    </vs-select>
+                                </div>
+                            </div>
+                            <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                                <div class="center con-selects">
+                                    <vs-select
+                                        filter
+                                        placeholder="Select approver"
+                                        v-model="SelectApprover"
+                                    >
+                                        <vs-option label="Vuesax" value="1">
+                                            Vuesax
+                                        </vs-option>
+                                        <vs-option label="Vue" value="2">
+                                            Vue
+                                        </vs-option>
+                                        <vs-option label="Javascript" value="3">
+                                            Javascript
+                                        </vs-option>
+                                        <vs-option label="Sass" value="4">
+                                            Sass
+                                        </vs-option>
+                                        <vs-option label="Typescript" value="5">
+                                            Typescript
+                                        </vs-option>
+                                        <vs-option  label="Webpack" value="6">
+                                            Webpack
+                                        </vs-option>
+                                        <vs-option label="Nodejs" value="7">
+                                            Nodejs
+                                        </vs-option>
+                                    </vs-select>
+                                </div>
                             </div>
                         </div>
                         <div class="add-new-template m-3 d-flex justify-content-end">
                             <span class="detail-approver-add">
-                                <i class='bx bx-plus-circle'></i> Add Approval
+                                <i class='bx bx-plus-circle'></i> Add new checkbox
                             </span>
                         </div>
                     </div>
@@ -182,31 +240,497 @@
                 </div>
                 <div class="detail-title">
                     <label class="p-2 mt-3">Processing Time</label><span>*</span>
-                    <div class="input-detail">
+                    <div class="p-0 input-filter-result col-sm-12 col-md-12 col-lg-12">
                         <select name="" id="">
-                            <option>1</option>
-                            <option>1</option>
-                            <option>1</option>
-                            <option>1</option>
-                            <option>1</option>
-
+                            <option value="">Selection processing time</option>
+                            <option value="">1 Hours</option>
+                            <option value="">2 Hours</option>
+                            <option value="">3 Hours</option>
+                            <option value="">4 Hours</option>
                         </select>
                     </div>
                 </div>
                 <div class="detail-title">
-                    <label class="p-2 mt-3">Processing Time</label><span>*</span>
-                    <div class="input-detail">
+                    <label class="p-2 mt-3">Minimum Approval</label><span>*</span>
+                    <div class="p-0 input-filter-result col-sm-12 col-md-12 col-lg-12">
                         <select name="" id="">
-                            <option>1</option>
-                            <option>1</option>
-                            <option>1</option>
-                            <option>1</option>
-                            <option>1</option>
-
+                            <option value="">None</option>
+                            <option value="">1 Hours</option>
+                            <option value="">2 Hours</option>
+                            <option value="">3 Hours</option>
+                            <option value="">4 Hours</option>
                         </select>
                     </div>
+<!--                    <select class="form-control select2" data-toggle="select2">
+                        <option>Select</option>
+                        <optgroup label="Alaskan/Hawaiian Time Zone">
+                            <option value="AK">Alaska</option>
+                            <option value="HI">Hawaii</option>
+                        </optgroup>
+                        <optgroup label="Pacific Time Zone">
+                            <option value="CA">California</option>
+                            <option value="NV">Nevada</option>
+                            <option value="OR">Oregon</option>
+                            <option value="WA">Washington</option>
+                        </optgroup>
+                    </select>-->
                 </div>
                 <h5 class="mt-4"> Information Field</h5>
+                <div class="row group-input-create-template mb-3">
+                    <div class="icon-drop-drag d-flex flex-column justify-content-center"
+                         style="margin-left: 10px;">
+                            <span>
+                                <i class='bx bxs-grid'></i>
+                            </span>
+                    </div>
+
+                    <div class="row  col-12 input-filter">
+                        <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                            <div class="center con-selects" >
+                                <div>
+                                    <vs-select
+                                        filter
+                                        placeholder="Select "
+                                        v-model="SelectOrganization"
+                                    >
+                                        <vs-option label="Text box" value="1">
+                                            Text box
+                                        </vs-option>
+
+                                        <vs-option label="CheckBox" value="2">
+                                            CheckBox
+                                        </vs-option>
+                                        <vs-option label="Radio box" value="3">
+                                            Radio box
+                                        </vs-option>
+                                        <vs-option label="Date" value="4">
+                                            Date
+                                        </vs-option>
+                                        <vs-option label="Time" value="5">
+                                            Time
+                                        </vs-option>
+                                        <vs-option label="Attachment" value="6">
+                                            Attachment
+                                        </vs-option>
+                                    </vs-select>
+                                    <div class="d-flex group-icon-box2">
+                                        <div class="input-check-box-2" >
+                                            <input type="checkbox" v-model="option"/>
+                                            <label>Request</label>
+                                        </div>
+                                        <span class="icon-duplication"><i class='bx bx-copy-alt'></i></span>
+                                        <span class="icon-delete-handle"><i class="mr-1 bx bxs-trash"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                            <div class="input-right-box-2">
+                                <div class="center content-inputs">
+                                    <input class="v-input-right-1"
+                                           type="text"
+                                           placeholder="Input field name"
+                                    >
+                                </div>
+                            </div>
+                            <div class="input-right-box-2">
+                                <div class="center content-inputs">
+                                    <input class="v-input-right-2"
+                                           type="text"
+                                           placeholder="Answer"
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row group-input-create-template mb-3">
+                    <div class="icon-drop-drag d-flex flex-column justify-content-center"
+                         style="margin-left: 10px;">
+                            <span>
+                                <i class='bx bxs-grid'></i>
+                            </span>
+
+                    </div>
+
+                    <div class="row  col-12 input-filter">
+                        <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                            <div class="center con-selects" >
+                                <div>
+                                    <vs-select
+                                        filter
+                                        placeholder="Select "
+                                        v-model="SelectOrganization"
+                                    >
+                                        <vs-option label="Text box" value="1">
+                                            Text box
+                                        </vs-option>
+
+                                        <vs-option label="CheckBox" value="2">
+                                            CheckBox
+                                        </vs-option>
+                                        <vs-option label="Radio box" value="3">
+                                            Radio box
+                                        </vs-option>
+                                        <vs-option label="Date" value="4">
+                                            Date
+                                        </vs-option>
+                                        <vs-option label="Time" value="5">
+                                            Time
+                                        </vs-option>
+                                        <vs-option label="Attachment" value="6">
+                                            Attachment
+                                        </vs-option>
+                                    </vs-select>
+                                    <div class="d-flex group-icon-box2">
+                                        <div class="input-check-box-2" >
+                                            <input type="checkbox" v-model="option"/>
+                                            <label>Request</label>
+                                        </div>
+                                        <span class="icon-duplication"><i class='bx bx-copy-alt'></i></span>
+                                        <span class="icon-delete-handle"><i class="mr-1 bx bxs-trash"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                            <div class="input-right-box-2">
+                                <div class="center content-inputs">
+                                    <input class="v-input-right-1"
+                                           type="text"
+                                           placeholder="Input field name"
+                                    >
+                                </div>
+                            </div>
+                            <div class="input-right-box-2">
+                                <div class="create-radio">
+                                    <div class="group-box">
+                                        <div class="select-radio d-flex justify-content-between align-items-center mb-2">
+                                            <div>
+                                                <input type="radio"><span>Enter name of radio button 1</span>
+                                            </div>
+                                            <span><i class='bx bx-x'></i></span>
+                                        </div>
+                                        <div class="select-radio d-flex justify-content-between align-items-center mb-2">
+                                            <div>
+                                                <input type="radio"><span>Enter name of radio button 2</span>
+                                            </div>
+                                            <span><i class='bx bx-x'></i></span>
+                                        </div>
+                                        <div class="add-new-template mt-3 d-flex justify-content-start">
+                                                <span class="Add-new">
+                                                    <i class='bx bx-plus-circle'></i> Add new radio button
+                                                </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row group-input-create-template mb-3">
+                    <div class="icon-drop-drag d-flex flex-column justify-content-center"
+                         style="margin-left: 10px;">
+                            <span>
+                                <i class='bx bxs-grid'></i>
+                            </span>
+
+                    </div>
+                    <div class="row  col-12 input-filter">
+                        <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                            <div class="center con-selects" >
+                                <div>
+                                    <vs-select
+                                        filter
+                                        placeholder="Select "
+                                        v-model="SelectOrganization"
+                                    >
+                                        <vs-option label="Text box" value="1">
+                                            Text box
+                                        </vs-option>
+
+                                        <vs-option label="CheckBox" value="2">
+                                            CheckBox
+                                        </vs-option>
+                                        <vs-option label="Radio box" value="3">
+                                            Radio box
+                                        </vs-option>
+                                        <vs-option label="Date" value="4">
+                                            Date
+                                        </vs-option>
+                                        <vs-option label="Time" value="5">
+                                            Time
+                                        </vs-option>
+                                        <vs-option label="Attachment" value="6">
+                                            Attachment
+                                        </vs-option>
+                                    </vs-select>
+                                    <div class="d-flex group-icon-box2">
+                                        <div class="input-check-box-2" >
+                                            <input type="checkbox" v-model="option"/>
+                                            <label>Request</label>
+                                        </div>
+                                        <span class="icon-duplication"><i class='bx bx-copy-alt'></i></span>
+                                        <span class="icon-delete-handle"><i class="mr-1 bx bxs-trash"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                            <div class="input-right-box-2">
+                                <div class="center content-inputs">
+                                    <input class="v-input-right-1"
+                                           type="text"
+                                           placeholder="Input field name"
+                                    >
+                                </div>
+                            </div>
+                            <div class="input-right-box-2">
+                                <div class="create-radio">
+                                    <div class="group-box">
+                                        <div class="select-radio d-flex justify-content-between align-items-center mb-2">
+                                            <div>
+                                                <input type="checkbox"><span>Enter name of radio button 1</span>
+                                            </div>
+                                            <span><i class='bx bx-x'></i></span>
+                                        </div>
+                                        <div class="select-radio d-flex justify-content-between align-items-center mb-2">
+                                            <div>
+                                                <input type="checkbox"><span>Enter name of radio button 2</span>
+                                            </div>
+                                            <span><i class='bx bx-x'></i></span>
+                                        </div>
+                                        <div class="add-new-template mt-3 d-flex justify-content-start">
+                                                <span class="Add-new">
+                                                    <i class='bx bx-plus-circle'></i> Add Approval
+                                                </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row group-input-create-template mb-3">
+                    <div class="icon-drop-drag d-flex flex-column justify-content-center"
+                         style="margin-left: 10px;">
+                            <span>
+                                <i class='bx bxs-grid'></i>
+                            </span>
+                    </div>
+
+                    <div class="row  col-12 input-filter">
+                        <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                            <div class="center con-selects" >
+                                <div>
+                                    <vs-select
+                                        filter
+                                        placeholder="Select "
+                                        v-model="SelectOrganization"
+                                    >
+                                        <vs-option label="Text box" value="1">
+                                            Text box
+                                        </vs-option>
+
+                                        <vs-option label="CheckBox" value="2">
+                                            CheckBox
+                                        </vs-option>
+                                        <vs-option label="Radio box" value="3">
+                                            Radio box
+                                        </vs-option>
+                                        <vs-option label="Date" value="4">
+                                            Date
+                                        </vs-option>
+                                        <vs-option label="Time" value="5">
+                                            Time
+                                        </vs-option>
+                                        <vs-option label="Attachment" value="6">
+                                            Attachment
+                                        </vs-option>
+                                    </vs-select>
+                                    <div class="d-flex group-icon-box2">
+                                        <div class="input-check-box-2" >
+                                            <input type="checkbox" v-model="option"/>
+                                            <label>Request</label>
+                                        </div>
+                                        <span class="icon-duplication"><i class='bx bx-copy-alt'></i></span>
+                                        <span class="icon-delete-handle"><i class="mr-1 bx bxs-trash"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                            <div class="input-right-box-2">
+                                <div class="center content-inputs">
+                                    <input class="v-input-right-1"
+                                           type="text"
+                                           placeholder="Input field name"
+                                    >
+                                </div>
+                            </div>
+                            <div class="input-right-box-2">
+                                <div class="center content-inputs">
+                                    <input class="v-input-right-3" type="datetime-local">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row group-input-create-template mb-3">
+                    <div class="icon-drop-drag d-flex flex-column justify-content-center"
+                         style="margin-left: 10px;">
+                            <span>
+                                <i class='bx bxs-grid'></i>
+                            </span>
+                    </div>
+
+                    <div class="row  col-12 input-filter">
+                        <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                            <div class="center con-selects" >
+                                <div>
+                                    <vs-select
+                                        filter
+                                        placeholder="Select "
+                                        v-model="SelectOrganization"
+                                    >
+                                        <vs-option label="Text box" value="1">
+                                            Text box
+                                        </vs-option>
+
+                                        <vs-option label="CheckBox" value="2">
+                                            CheckBox
+                                        </vs-option>
+                                        <vs-option label="Radio box" value="3">
+                                            Radio box
+                                        </vs-option>
+                                        <vs-option label="Date" value="4">
+                                            Date
+                                        </vs-option>
+                                        <vs-option label="Time" value="5">
+                                            Time
+                                        </vs-option>
+                                        <vs-option label="Attachment" value="6">
+                                            Attachment
+                                        </vs-option>
+                                    </vs-select>
+                                    <div class="d-flex group-icon-box2">
+                                        <div class="input-check-box-2" >
+                                            <input type="checkbox" v-model="option"/>
+                                            <label>Request</label>
+                                        </div>
+                                        <span class="icon-duplication"><i class='bx bx-copy-alt'></i></span>
+                                        <span class="icon-delete-handle"><i class="mr-1 bx bxs-trash"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                            <div class="input-right-box-2">
+                                <div class="center content-inputs">
+                                    <input class="v-input-right-1"
+                                           type="text"
+                                           placeholder="Input field name"
+                                    >
+                                </div>
+                            </div>
+                            <div class="input-right-box-2">
+                                <div class="center content-inputs">
+                                    <input class="v-input-right-3" type="date">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row group-input-create-template mb-3">
+                    <div class="icon-drop-drag d-flex flex-column justify-content-center"
+                         style="margin-left: 10px;">
+                            <span>
+                                <i class='bx bxs-grid'></i>
+                            </span>
+                    </div>
+
+                    <div class="row  col-12 input-filter">
+                        <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                            <div class="center con-selects" >
+                                <div>
+                                    <vs-select
+                                        filter
+                                        placeholder="Select "
+                                        v-model="SelectOrganization"
+                                    >
+                                        <vs-option label="Text box" value="1">
+                                            Text box
+                                        </vs-option>
+
+                                        <vs-option label="CheckBox" value="2">
+                                            CheckBox
+                                        </vs-option>
+                                        <vs-option label="Radio box" value="3">
+                                            Radio box
+                                        </vs-option>
+                                        <vs-option label="Date" value="4">
+                                            Date
+                                        </vs-option>
+                                        <vs-option label="Time" value="5">
+                                            Time
+                                        </vs-option>
+                                        <vs-option label="Attachment" value="6">
+                                            Attachment
+                                        </vs-option>
+                                    </vs-select>
+                                    <div class="d-flex group-icon-box2">
+                                        <div class="input-check-box-2" >
+                                            <input type="checkbox" v-model="option"/>
+                                            <label>Request</label>
+                                        </div>
+                                        <span class="icon-duplication"><i class='bx bx-copy-alt'></i></span>
+                                        <span class="icon-delete-handle"><i class="mr-1 bx bxs-trash"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
+                            <div class="input-right-box-2-file">
+                                <div class="upload-file">
+                                    <div class="up-cv">
+                                        <button class="btn btn-outline-primary" @click="onFileChange" type="button" id="custom-button">
+                                            <p class="material-symbols-outlined"> Choose File </p>
+                                        </button>
+
+                                        <input id="real-file" type="file" style="display: none" name="image" @change="fileName" />
+                                        <div class="name-cv">
+                                            <span v-if="uploadedFileName">{{ uploadedFileName }}</span>
+                                            <span v-else id="custom-text">Attachment (jpg, pdf, doc, dcx, xls, xlsx...
+                                                    <br>
+                                                    Maximum file size 2MB )
+                                                </span>
+                                            <span v-if="uploadedFileName" class="material-symbols-outlined deleteBtn" @click="deleteFile">
+                                                    <i class="mr-1 bx bxs-trash"></i>
+                                                </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="btn-add-new row mb-3" >
+                            <span>
+                               <i class="bx bx-plus-circle"></i>
+                                Add information field
+                            </span>
+                </div>
             </form>
         </div>
     </section>
@@ -397,5 +921,6 @@ h5 {
         cursor: pointer;
     }
 }
+
 
 </style>

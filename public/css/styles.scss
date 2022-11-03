@@ -59,7 +59,7 @@ i.bx.bx-dots-vertical-rounded {
     border: none;
     background: transparent;
     display: flex;
-    align-items: center;
+    align-items: start;
     margin: auto;
     font-size: 16px;
     gap: 10px;
@@ -68,6 +68,9 @@ i.bx.bx-dots-vertical-rounded {
 }
 .sort-button i {
     font-size: 16px;
+}
+.sort-button span {
+    color: #1b1e21;
 }
 
 .button_create {
@@ -108,7 +111,7 @@ i.bx.bx-dots-vertical-rounded {
 }
 
 #v-sidebar-toggle:checked ~ .v-main-container header {
-    left: 84.5px;
+    left: 85.5px;
     width: calc(100% - 84px);
 }
 
@@ -174,9 +177,19 @@ i.bx.bx-dots-vertical-rounded {
     display: none;
 }
 
-#v-sidebar-toggle:checked ~ .v-sidebar .v-sidebar-header, #v-sidebar-toggle:checked ~ .v-sidebar .v-sidebar-header .logo_sidebar {
+
+#v-sidebar-toggle:checked ~ .v-sidebar .v-sidebar-header, #v-sidebar-toggle:checked ~ .v-sidebar .v-sidebar-header .logo_sidebar::after {
     display: flex;
 }
+
+.v-sidebar .v-sidebar-header .logo_sidebar {
+    display: none;
+}
+
+#v-sidebar-toggle:checked ~ .v-sidebar .v-sidebar-header .logo_sidebar {
+    display: flex;
+}
+
 
 .v-sidebar a span i:last-child {
     color: var(--color-text);
@@ -325,7 +338,6 @@ main {
 .bday-card {
     background: #fff;
     border-radius: 7px;
-    border: 1px solid;
 }
 .card-approver {
     padding: 20px;
@@ -338,7 +350,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 3px 20px;
+    padding: 8px 16px;
     font-size: .8rem;
     color: #0b8ffc;
     border-radius: 10px;
@@ -357,13 +369,14 @@ main {
 
 }
 .table-responsive-detail {
-    background-color: var(--background);
-    padding: 20px;
-    border-radius: 8px;
+    margin: 24px;
+    background-color:#FAFAFA;
+    //border-collapse: collapse;
+    border-radius: 6px;
 }
 .activity-card table {
     width: 100%;
-    //border-collapse: collapse;
+    padding: 10px;
 }
 .activity-card thead {
     background: #efefef;
@@ -395,13 +408,44 @@ tbody tr:nth-child(even) {
 
 /*Media Navbar & SideBar*/
 
+@media only screen and (max-width: 2222px){
+    .label-mobile {
+        display: none;
+    }
+}
+
 
 
 @media only screen and (max-width: 1200px){
 
+    .v-sidebar-menu {
+        padding: 1rem;
+    }
+    .label-mobile {
+        display: block;
+    }
     .v-sidebar {
-        width: 60px;
+        width: 68.5px;
         z-index: 999;
+    }
+
+    #v-sidebar-toggle:checked ~ .v-sidebar .v-sidebar-header, #v-sidebar-toggle:checked ~ .v-sidebar .v-sidebar-header .logo_sidebar::after {
+        display: flex;
+    }
+
+    .v-sidebar .v-sidebar-header .logo_sidebar {
+        display: flex;
+    }
+
+    #v-sidebar-toggle:checked ~ .v-sidebar .v-sidebar-header .logo_sidebar {
+        display: none;
+    }
+
+    .v-sidebar .v-sidebar-header .logo_sidebar:last-child {
+        display: block;
+    }
+    #v-sidebar-toggle:checked ~ .v-sidebar .v-sidebar-header, #v-sidebar-toggle:checked ~ .v-sidebar .v-sidebar-header .logo_sidebar {
+        display: none;
     }
 
     .v-sidebar .v-sidebar-header h3 span,
@@ -420,8 +464,8 @@ tbody tr:nth-child(even) {
     }
 
     .v-main-container header {
-        left: 61.5px;
-        width: calc(100% - 61.5px);
+        left: 69.5px;
+        width: calc(100% - 68.5px);
         z-index: 999;
     }
 
@@ -451,7 +495,7 @@ tbody tr:nth-child(even) {
 
     #v-sidebar-toggle:checked ~ .v-main-container header {
         //left: 241.5px;
-        left: 60px;
+        left: 84.5px;
         z-index: 99;
     }
 }
@@ -541,6 +585,13 @@ tbody tr:nth-child(even) {
     font-size: 14px;
 }
 
+.create-description textarea ::placeholder {
+    font-size: 14px;
+}
+.create-description textarea {
+    padding: 12px;
+    background-color: #F4F7F8;
+}
 .select-dropdown .options {
     //border-top: 2px solid black;
 }
@@ -608,8 +659,9 @@ tbody tr:nth-child(even) {
 
 .form .err-message {
     margin: unset;
+    color: #d0211c;
     span {
-        color: red;
+        color: red !important;
         font-size: 12px;
     }
 }
@@ -623,7 +675,7 @@ input::placeholder {
     color: #B7B7B7;
 }
 textarea::placeholder {
-    font-size: 12px;
+    font-size: 14px;
     color: #B7B7B7;
 }
 /*================ Request List <User> ================*/
@@ -641,8 +693,8 @@ nav {
 nav a {
     display: inline-block;
     padding: 10px;
-    color: #656565 !important;
-    font-size: 15px;
+    color: #BDBDBD !important;
+    font-size: 16px;
     text-decoration: none !important;
     line-height: 1;
     background-color: transparent;
@@ -679,17 +731,35 @@ nav.withdrawn .withdrawn
     max-width: none;
 }
 
+.border_button {
+    border-bottom: 1px solid #333333;
+    margin-bottom: 33px !important;
+}
+
+/*.border_button_2 {
+    margin-bottom: 33px !important;
+}
+.border_button_3 {
+    margin-bottom: 33px !important;
+}*/
+.margin_button {
+    margin-bottom: 41px !important;
+}
 .description-form {
     left: 58px;
     color: #0b8ffc;
     top:7px;
     position: absolute;
 }
+.description-form span {
+    font-size: 16px;
+    color: #0b8ffc;
+}
 .register {
     display: block;
     color: #333;
     overflow: auto;
-    max-width: 900px;
+    max-width: 812px;
     margin: 6rem auto;
     padding: 2rem;
     border-radius: 1rem;
@@ -707,6 +777,9 @@ nav.withdrawn .withdrawn
     color: #333;
     background-color: white;
 }
+.register-stepper .step .step-number-3 span{
+    font-size: 16px;
+}
 .description-form-step-3 {
     right: 63px;
     font-weight: bold;
@@ -722,6 +795,9 @@ nav.withdrawn .withdrawn
     flex-direction: column;
     justify-content: center;
 
+}
+.description-form-step-3 span {
+    font-size: 18px;
 }
 .icon-drop-drag.d-flex.flex-column.justify-content-center {
     padding-right: 3px;
@@ -746,6 +822,31 @@ nav.withdrawn .withdrawn
     border-radius: 10px;
     position: relative;
 }
+
+.search_template_one input {
+    width: 100%;
+    padding: 10px;
+    background: #f8f9fa;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+}
+
+.search_template_two input {
+    width: 100%;
+    padding: 10px;
+    background: #f8f9fa;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+}
+.icon-search-one {
+    position: absolute;
+    top:13px;
+    right: 40px;
+    font-size: 1.3rem;
+}
+
 .icon-search {
     position: absolute;
     top:13px;
@@ -754,7 +855,7 @@ nav.withdrawn .withdrawn
 }
 .search-date {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     background: #f8f9fa;
     gap: 20px;
     padding: 10px;
@@ -819,6 +920,11 @@ nav.withdrawn .withdrawn
     background-color: #f3f3f3;
     border-radius: 6px;
 }
+.detail-title .input-detail-pro {
+    padding: 6px;
+    background-color: #f3f3f3;
+    border-radius: 6px;
+}
 .detail-content,
 .detail-title label,span {
     font-size: 13px;
@@ -873,13 +979,30 @@ input-detail-select {
 .input-filter-result select {
     width: 100%;
     border: none;
-    padding: 12px;
+    color: #757575;
+    padding: 13px;
     outline: none;
+    font-size: 14px;
     border-radius: 10px;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    background-color: #f3f3f3;
 }
+.input-filter-result select option {
+    color: #757575;
+    font-size: 14px;
+}
+
+.add-new-template .Add-new {
+    color: #0b8ffc !important;
+    font-size: 15px;
+}
+
+button.vs-select__option {
+    font-size: 14px;
+}
+
 /////////////
 
 .dropdown-component {
@@ -1107,7 +1230,7 @@ input-detail-select {
     }
 }
 .summary {
-    padding: 0 20px;
+    padding: 0 0 20px 20px;
 }
 .detail-request .name-detail {
     background-color: var(--background) ;
@@ -1156,6 +1279,7 @@ input-detail-select {
     border: 1px solid #0b8ffc;
     border-radius: 8px;
     color: #0b8ffc;
+    cursor: pointer;
 }
 .upload-detail .download-detail {
     display: flex;
@@ -1169,7 +1293,13 @@ input-detail-select {
     font-size: 13px;
     color: #d0211c;
     border-radius: 8px;
+    display: flex;
+    gap: 10px;
     background-color: var(--background);
+}
+.upload-detail .download-detail span i  {
+    color: #d0211c;
+    font-size: 13px;
 }
 .upload-detail .download-detail i {
     font-size: 1.3rem;
@@ -1177,6 +1307,7 @@ input-detail-select {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    cursor: pointer;
 }
 
 .activities-item ul li span {
@@ -1250,8 +1381,11 @@ input-detail-select {
 .marker.active{
     width: 40px;
     height: 35px;
-    background:#5bd040;
+    background:#0b8ffc;
     left: 0px;
+}
+.marker.active i {
+    color: white;
 }
 .timeline-content {
     display: flex;
@@ -1261,6 +1395,11 @@ input-detail-select {
     padding: 0 15px;
     color: #666
 }
+
+.timeline-content span {
+    color: #0b8ffc !important;
+}
+
 i.fa.fa-check{
     display:none;
 }
@@ -1347,14 +1486,28 @@ i.fa.fa-check.active {
     color: #656565;
     font-size: 1.3rem;
 }
+.search_template .icon-search-one {
+    position: absolute;
+    top:13px;
+    right: 410px;
+    color: #656565;
+    font-size: 1.3rem;
+}
+
+.search_template .icon-search-two{
+    position: absolute;
+    top:15px;
+    right: 30px;
+    color: #656565;
+    font-size: 1.3rem;
+}
+
 .header-search-processing,
 .search_template
 ::placeholder {
-    font-size: 16px;
+    font-size: 14px;
 }
-.icon-search-one {
-    right: 410px;
-}
+
 
 .icon-search-two {
     right: 29px;
@@ -1376,11 +1529,10 @@ input[type=date], input[type=datetime-local], input[type=month], input[type=time
 
 /*================ Setting ================*/
 .setting {
-    max-width: 900px;
+    max-width: 812px;
     margin: 0 auto;
     padding: 2rem;
-    border: 1px solid;
-    border-radius: 1rem;
+    border-radius: 8px;
     background-color: #ffffff;
 }
 .nav-setting,
@@ -1388,7 +1540,82 @@ input[type=date], input[type=datetime-local], input[type=month], input[type=time
     display: flex;
     justify-content: space-between;
     gap: 20px;
+
 }
+.nav-setting {
+    margin: 12px 23px 20px 20px;
+}
+.button-setting .button-withdraw {
+    padding: 10px;
+    background-color: #F3F3F3;
+    font-size: 14px;
+    color: #757575 !important;
+    border: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.button-setting .button-cancel {
+    padding: 10px;
+    background-color: #F3F3F3;
+    font-size: 14px;
+    color: #757575 !important;
+    border: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.button-setting .button-approve {
+    padding: 10px;
+    background-color: #0b8ffc;
+    font-size: 14px;
+    color: #ffffff !important;
+    border: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.button-setting .button-submit {
+    padding: 10px;
+    background-color: #0b8ffc;
+    font-size: 14px;
+    color: #ffffff !important;
+    border: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.button-setting .button-reject {
+    padding: 10px;
+    background-color: transparent;
+    font-size: 14px;
+    border: 1px solid #d0211c;
+    color: #ED1C24 !important;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.button-setting .button-delegate {
+    padding: 10px;
+    background-color: transparent;
+    font-size: 14px;
+    border: 1px solid #0b8ffc;
+    color: #0b8ffc !important;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.button-setting .button-draft{
+    padding: 10px;
+    background-color: transparent;
+    font-size: 14px;
+    border: 1px solid #0b8ffc;
+    color: #0b8ffc !important;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
 
 .button-setting span {
     background-color: var(--background);
@@ -1396,8 +1623,8 @@ input[type=date], input[type=datetime-local], input[type=month], input[type=time
     display: flex;
     align-items: center;
     font-weight: lighter;
-    font-size: 1rem;
-    padding: 10px;
+    font-size: 1.2rem;
+    padding: 11px;
     border-radius: 8px;
     cursor: pointer;
 }
@@ -1430,37 +1657,47 @@ input[type=date], input[type=datetime-local], input[type=month], input[type=time
 .title-setting {
     padding: 10px;
 }
+.title-setting span {
+    font-size: 20px;
+    font-weight: 500;
+    color: #1b1e21;
+}
 .button-setting-reset {
-    padding: 10px;
+    padding: 12px;
     border-radius: 7px;
-    background: #ececec;
+    background: #f3f3f3;
+    font-size: 14px;
+    color: #757575 ;
+    margin: auto;
     cursor: pointer;
-    color: white;
 }
 
 .button-setting-save {
-    padding: 10px;
+    padding: 12px;
+    margin: auto;
     border-radius: 7px;
     background:#0b8ffc;
     cursor: pointer;
     color: white;
+    font-size: 14px;
 }
 .item-request {
     padding: 20px;
+    font-size: 14px;
 }
 
 .check-request ul li {
     margin-left: 20px;
-    padding: 10px;
+    padding: 6px;
 }
 .check-approval ul li {
     margin-left: 20px;
-    padding: 10px;
+    padding: 6px;
 }
 
 .check-template ul li {
     margin-left: 20px;
-    padding: 10px;
+    padding: 6px;
 }
 
 /*================End Setting ================*/

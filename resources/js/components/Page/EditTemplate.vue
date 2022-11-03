@@ -78,87 +78,66 @@
                     <div class="detail-approver">
                         <div class="row input-filter">
                             <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
-                                <div class="dropdown-component">
-                                    <label for="btn" class="button">Drop down
-                                        <span>
-                                            <i class='bx bx-chevron-down'></i>
-                                        </span>
-                                    </label>
-                                    <input type="checkbox" id="btn">
-                                    <ul class="menu">
-<!--                                        <li>-->
-<!--                                            <a href="#">Home</a>-->
-<!--                                        </li>-->
-                                        <li>
-                                            <label for="btn-2" class="first">Features
-                                                <span>
-                                                    <i class='bx bx-chevron-down'></i>
-                                                </span>
-                                            </label>
-                                            <input type="checkbox" id="btn-2">
-                                            <ul>
-                                                <li><a href="#">Pages</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <label for="btn-3" class="second">Services
-                                                <span>
-                                                    <i class='bx bx-chevron-down'></i>
-                                                </span>
-                                            </label>
-                                            <input type="checkbox" id="btn-3">
-                                            <ul>
-                                                <li><a href="#">Web Design</a></li>
-                                                <li><a href="#">App Design</a></li>
-                                            </ul>
-                                        </li>
-<!--                                        <li><a href="#">Contact</a></li>-->
-<!--                                        <li><a href="#">Feedback</a></li>-->
-                                    </ul>
+                                <div class="center con-selects">
+                                    <vs-select
+                                        filter
+                                        placeholder="Select organization"
+                                        v-model="SelectOrganization"
+                                    >
+                                        <vs-option label="HN" value="1">
+                                            HN
+                                        </vs-option>
+
+                                        <vs-option label="Vue" value="2">
+                                            Vue
+                                        </vs-option>
+                                        <vs-option label="Javascript" value="3">
+                                            Javascript
+                                        </vs-option>
+                                        <vs-option label="Sass" value="4">
+                                            Sass
+                                        </vs-option>
+                                        <vs-option label="Typescript" value="5">
+                                            Typescript
+                                        </vs-option>
+                                        <vs-option label="Webpack" value="6">
+                                            Webpack
+                                        </vs-option>
+                                        <vs-option label="Nodejs" value="7">
+                                            Nodejs
+                                        </vs-option>
+                                    </vs-select>
                                 </div>
                             </div>
                             <div class="input-filter-result col-sm-6 col-md-6 col-lg-6">
-                                <div class="select-box">
-                                    <div class="options-container">
-                                        <div class="option">
-                                            <input
-                                                type="radio"
-                                                class="radio"
-                                                id="automobiles"
-                                                name="category"
-                                            />
-                                            <label for="automobiles">Select organization</label>
-                                        </div>
-                                        <div class="option">
-                                            <input type="radio" class="radio" id="film" name="category" />
-                                            <label for="film">Film & Animation</label>
-                                        </div>
-                                        <div class="option">
-                                            <input type="radio" class="radio" id="science" name="category" />
-                                            <label for="science">Science & Technology</label>
-                                        </div>
-                                        <div class="option">
-                                            <input type="radio" class="radio" id="art" name="category" />
-                                            <label for="art">Art</label>
-                                        </div>
-                                        <div class="option">
-                                            <input type="radio" class="radio" id="music" name="category" />
-                                            <label for="music">Music</label>
-                                        </div>
-                                        <div class="option">
-                                            <input type="radio" class="radio" id="travel" name="category" />
-                                            <label for="travel">Travel & Events</label>
-                                        </div>
-                                        <div class="option">
-                                            <input type="radio" class="radio" id="sports" name="category" />
-                                            <label for="sports">Sports</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="selected">
-                                        Select organization
-                                    </div>
-
+                                <div class="center con-selects">
+                                    <vs-select
+                                        filter
+                                        placeholder="Select approver"
+                                        v-model="SelectApprover"
+                                    >
+                                        <vs-option label="Vuesax" value="1">
+                                            Vuesax
+                                        </vs-option>
+                                        <vs-option label="Vue" value="2">
+                                            Vue
+                                        </vs-option>
+                                        <vs-option label="Javascript" value="3">
+                                            Javascript
+                                        </vs-option>
+                                        <vs-option label="Sass" value="4">
+                                            Sass
+                                        </vs-option>
+                                        <vs-option label="Typescript" value="5">
+                                            Typescript
+                                        </vs-option>
+                                        <vs-option  label="Webpack" value="6">
+                                            Webpack
+                                        </vs-option>
+                                        <vs-option label="Nodejs" value="7">
+                                            Nodejs
+                                        </vs-option>
+                                    </vs-select>
                                 </div>
                             </div>
                         </div>
@@ -260,7 +239,7 @@
                                 <input id="real-file" type="file" style="display: none" name="image" @change="fileName" />
                                 <div class="name-cv">
                                     <span v-if="uploadedFileName">{{ uploadedFileName }}</span>
-                                    <span v-else id="custom-text">Attachment (jpg, pdf, doc, dcx, xls, xlsx only..
+                                    <span v-else id="custom-text">Attachment (jpg, pdf, doc, dcx, xls, xlsx...
                                                     <br>
                                                     Maximum file size 2MB )
                                                 </span>

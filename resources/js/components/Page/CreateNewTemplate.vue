@@ -10,7 +10,7 @@
                              data-text-color="custom">
 
                             <p class="cta-color">
-                            <span class="link_wrap">
+                            <span class="link_wrap pb-3 border_button ">
                                 <input type="submit" value="Next" class="link_text" />
                             </span>
                             </p>
@@ -18,14 +18,14 @@
 
                         <div class="register-stepper">
                             <div class="step" :class="{'step-active' : step === 1, 'step-done': step > 1}">
-                                <span class="step-number">1</span>
+                                <span class="step-number" style="color: #0b8ffc">1</span>
                             </div>
                             <div class="description-form">
                                 <span >General Information </span>
                             </div>
 
                             <div class="step" :class="{'step-active' : step === 2, 'step-done': step > 2}">
-                                <span class="step-number">2</span>
+                                <span class="step-number" style="color: #757575">2</span>
                                 <div class="description-form-step-2">
                                     <span > Information Field</span>
                                 </div>
@@ -52,19 +52,27 @@
                             minlength="3" maxlength="20"
                         />
                         <p class="err-message" v-if=" customer.name === 'hainv' ">
-                            <span>Error message</span>
+                            <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry</span>
                         </p>
 
                         <!--Description-->
 
                         <label class="mt-3">Description <span>*</span></label>
-                        <textarea
-                            type="text"
-                            v-model="customer.lastName"
-                            autocomplete="customer.lastName"
-                            placeholder="Answer"
-                            required
-                        />
+                        <div class="create-description">
+                            <textarea
+                                cols="8"
+                                rows="5"
+                                type="text"
+                                v-model="customer.lastName"
+                                autocomplete="customer.lastName"
+                                placeholder="Answer"
+                                required
+                            />
+                        </div>
+
+                        <p class="err-message" v-if=" customer.name === 'hainv' ">
+                            <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry</span>
+                        </p>
 
                         <!--Approver-->
 
@@ -136,7 +144,7 @@
                                 </div>
                             </div>
                             <div class="add-new-template mt-3 d-flex justify-content-end">
-                            <span class="">
+                            <span class="Add-new">
                                 <i class='bx bx-plus-circle'></i> Add Approval
                             </span>
                             </div>
@@ -233,19 +241,19 @@
                         <div class="form-group cta-step">
                             <div class="cta prev">
                                 <p class="cta-color">
-                                <span class="link_wrap">
+                                <span class="link_wrap .border_button_2 ">
                                   <a class="link_text" href="#" @click.prevent="prev()">
                                       Back
                                   </a>
                                 </span>
                                 </p>
                             </div>
-                            <div class="cta">
+                            <div class="cta ">
                                 <p class="cta-color">
                                     <span class="text"></span>
-                                    <span class="link_wrap">
-                                  <input type="submit" value="Next" class="link_text" />
-                                </span>
+                                    <span class="link_wrap border_button_3">
+                                        <input type="submit" value="Next" class="link_text" />
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -341,11 +349,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--                        <div class="add-new-template mt-3 d-flex justify-content-end">
-                                                        <span class="">
-                                                            <i class='bx bx-plus-circle'></i> Add Approval
-                                                        </span>
-                                                    </div>-->
                         </div>
 
                         <div class="row group-input-create-template mb-3">
@@ -422,8 +425,8 @@
                                                     <span><i class='bx bx-x'></i></span>
                                                 </div>
                                                 <div class="add-new-template mt-3 d-flex justify-content-start">
-                                                <span class="">
-                                                    <i class='bx bx-plus-circle'></i> Add Approval
+                                                <span class="Add-new">
+                                                    <i class='bx bx-plus-circle'></i> Add new checkbox
                                                 </span>
                                                 </div>
                                             </div>
@@ -507,8 +510,8 @@
                                                     <span><i class='bx bx-x'></i></span>
                                                 </div>
                                                 <div class="add-new-template mt-3 d-flex justify-content-start">
-                                                <span class="">
-                                                    <i class='bx bx-plus-circle'></i> Add Approval
+                                                <span class="Add-new">
+                                                    <i class='bx bx-plus-circle'></i> Add new radio button
                                                 </span>
                                                 </div>
                                             </div>
@@ -583,11 +586,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--                        <div class="add-new-template mt-3 d-flex justify-content-end">
-                                                        <span class="">
-                                                            <i class='bx bx-plus-circle'></i> Add Approval
-                                                        </span>
-                                                    </div>-->
+
                         </div>
 
                         <div class="row group-input-create-template mb-3">
@@ -654,11 +653,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--                        <div class="add-new-template mt-3 d-flex justify-content-end">
-                                                        <span class="">
-                                                            <i class='bx bx-plus-circle'></i> Add Approval
-                                                        </span>
-                                                    </div>-->
                         </div>
 
                         <div class="row group-input-create-template mb-3">
@@ -720,7 +714,7 @@
                                                 <input id="real-file" type="file" style="display: none" name="image" @change="fileName" />
                                                 <div class="name-cv">
                                                     <span v-if="uploadedFileName">{{ uploadedFileName }}</span>
-                                                    <span v-else id="custom-text">Attachment (jpg, pdf, doc, dcx, xls, xlsx only..
+                                                    <span v-else id="custom-text">Attachment (jpg, pdf, doc, dcx, xls, xlsx...
                                                     <br>
                                                     Maximum file size 2MB )
                                                 </span>
@@ -737,10 +731,10 @@
                         </div>
 
                         <div class="btn-add-new row mb-3" >
-                        <span>
-                           <i class="bx bx-plus-circle"></i>
-                            Add information field
-                        </span>
+                            <span>
+                               <i class="bx bx-plus-circle"></i>
+                                Add information field
+                            </span>
                         </div>
                     </form>
 
@@ -749,7 +743,7 @@
             <transition name="slide-fade">
                 <section v-show="step === 3">
                     <form class="form" action="#" @submit.prevent="customerRegister">
-                        <div class="form-group cta-step">
+                        <div class="form-group cta-step margin_button">
                             <div class="cta prev">
                                 <p class="cta-color">
                                 <span class="link_wrap">
@@ -796,7 +790,8 @@
                         </div>
 
 
-                        <h4 class="mb-2">General Information</h4>
+                        <h5 class="mb-2">General Information</h5>
+
                         <label class="mb-3">Approval Title <span>*</span></label>
                         <input
                             type="text"
@@ -888,7 +883,7 @@
                                 </div>
                             </div>
                             <div class="add-new-template mt-3 d-flex justify-content-end">
-                            <span class="">
+                            <span class="Add-new">
                                 <i class='bx bx-plus-circle'></i> Add Approval
                             </span>
                             </div>
@@ -915,7 +910,8 @@
                         <!--=====================-->
 
                         <!--Next -->
-                        <h4 class="mt-2">Information Field</h4>
+                        <h5 class="mt-4 mb-1">Information Field</h5>
+
                         <label class="mb-3">Full Name <span>*</span></label>
                         <input
                             type="text"
@@ -993,7 +989,7 @@
                                             <input id="real-file" type="file" style="display: none" name="image" @change="fileName" />
                                             <div class="name-cv">
                                                 <span v-if="uploadedFileName">{{ uploadedFileName }}</span>
-                                                <span v-else id="custom-text">Attachment (jpg, pdf, doc, dcx, xls, xlsx only..
+                                                <span v-else id="custom-text">Attachment (jpg, pdf, doc, dcx, xls, xlsx ...
                                                     <br>
                                                     Maximum file size 2MB )
                                                 </span>
@@ -1089,7 +1085,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 
 /*.vs-select-content {
     width: 100%;
@@ -1100,6 +1096,7 @@ label {
     span {
         font-size: 12px ;
         color: #d50000;
+        margin-left: 12px;
     }
 }
 
@@ -1110,20 +1107,23 @@ label {
     position: absolute;
 }*/
 .description-form-step-2 {
-    right: 244px;
+    right: 210px;
     color: #333333;
     top:8.8px;
     position: absolute;
+    span {
+        font-size: 16px;
+    }
     &::before {
         z-index: 0;
         content: "";
         display: block;
         position: absolute;
         height: 0.8px;
-        top: calc(72% - 1px);
+        top: calc(72% - 5.5px);
         background: #808080;
-        width: 75%;
-        left: 155px;
+        width: 58%;
+        left: 149px;
     }
 }
 /*.description-form-step-3 {
@@ -1198,9 +1198,9 @@ label {
             position: absolute;
             height: 0.5px;
             top: calc(50% - 2px);
-            background: #808080;
-            width: 11%;
-            left: 250px;
+            background: #0b8ffc;
+            width: 15%;
+            left: 231px;
         }
 
         .step {
@@ -1220,9 +1220,9 @@ label {
             font-size: 16px;
 
             &-active {
-                color: blue;
+                color: #0b8ffc;
                 background-color: white;
-                border-color: blue;
+                border-color: #0b8ffc;
             }
 
             &-done {
@@ -1232,7 +1232,9 @@ label {
 
             &-number {
                 font-weight: 800;
+                color: #0b8ffc;
                 line-height: 1;
+                font-size: 18px;
                 vertical-align: middle;
             }
         }
@@ -1244,6 +1246,7 @@ label {
             flex-flow: row;
             justify-content: flex-start;
             align-items: baseline;
+            margin-bottom: 32px;
 
             label {
                 text-align: left;
@@ -1255,6 +1258,7 @@ label {
             &.cta-step {
                 color: #ffffff;
                 justify-content: space-between;
+                border-bottom: 1px solid #333333 !important;
             }
 
             &.new-password {
@@ -1275,6 +1279,8 @@ label {
             align-items: center;
             justify-content: flex-end;
             width: 100%;
+            //border-bottom: 1px solid #333333;
+            margin-bottom: 1rem;
             margin-bottom: 1rem;
             .arrow-prev {
                 position: relative;
@@ -1297,10 +1303,13 @@ label {
     input[type="date"] {
         -webkit-appearance: none;
         border: 0;
-        border-radius: 5px;
-        padding: 9px;
+        border-radius: 6px;
+        padding: 12px;
         background-color:#F4F7F8;
         width: 100%;
+        &::placeholder {
+            font-size: .8rem;
+        }
     }
 
 
@@ -1308,6 +1317,7 @@ label {
         cursor: pointer;
         position: relative;
         width: 100px;
+        font-size:14px ;
         background: none;
         color: #ffffff;
         background: #007BFF;
@@ -1363,6 +1373,7 @@ label {
     border: 1px solid #0b8ffc;
     padding: 8px;
     color: #0b8ffc;
+    font-size: 14px;
     border-radius: 5px;
 }
 
@@ -1372,8 +1383,9 @@ label {
     .draft {
         border: 1px solid #0b8ffc;
         padding: 8px;
-        color: #0b8ffc;
+        color: #0b8ffc !important;
         border-radius: 5px;
+        font-size: 14px;
         cursor: pointer;
         &:hover {
             color:#0b8ffc !important; ;
@@ -1383,6 +1395,7 @@ label {
         border: 1px solid #0b8ffc;
         padding: 8px;
         color: #ffffff;
+        font-size: 14px;
         background: #0b8ffc;
         border-radius: 5px;
         cursor: pointer;
@@ -1417,9 +1430,9 @@ label {
     }
 }
 
-.vs-select__options {
+/*.vs-select__options {
     background: #f30;
-}
+}*/
 // Model  select
 .vs-select__options.vs-component--primary {
     z-index: 998;
@@ -1427,13 +1440,10 @@ label {
 
 textarea {
     width: 100%;
-    padding: 10px;
     margin-top: 7px;
     border: none;
-    background-color: #F4F7F8;
     border-radius: 10px;
     &:focus-visible {
-
         border-radius: 3px;
         outline: none;
     }
@@ -1469,14 +1479,22 @@ textarea {
             background: #f3f3f3;
             margin-bottom: 10px;
             padding: 10px;
+            border: none;
+            width: 100%;
             &::placeholder {
-
+                font-size: 14px !important;
             }
         }
         .v-input-right-2 {
             border-radius: 10px;
             background: #f3f3f3;
-            padding: 10px;
+            margin-bottom: 10px;
+            padding: 12px;
+            border: none;
+            width: 100%;
+            &::placeholder {
+                font-size: 14px !important;
+            }
         }
 
         .v-input-right-3 {
@@ -1552,6 +1570,15 @@ textarea {
     }
 }
 
+.form .err-message {
+    margin: unset;
+    color: #d0211c;
+    span {
+        color: red !important;
+        font-size: 12px;
+    }
+}
+
 .btn-add-new {
     display: flex;
     justify-content: end;
@@ -1565,12 +1592,13 @@ textarea {
 
 .group-input-create-template {
     padding: 15px;
-    background: #fafafa;
+    margin: 4px;
+    background: #F4F7F8;
     border-radius: 10px;
 
-    .add-new-template {
-        color: #0b8ffc;
-        font-size: 15px;
+    .add-new-template .Add-new {
+        color: #0b8ffc !important;
+        font-size: 14px;
     }
     .vs-select-content {
     }
@@ -1583,13 +1611,8 @@ textarea {
 
 }
 
-
-/*.icon-drop-drag.d-flex.flex-column.justify-content-center {
-    padding-right: 3px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-right: 1px solid #dedede;
-    position: relative;
-}*/
+.vs-select__input {
+    font-size: 14px !important;
+}
 </style>
 

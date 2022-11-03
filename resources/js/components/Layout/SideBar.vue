@@ -8,12 +8,14 @@
                             <span class="title-logo">
                                 E-Approval
                             </span>
-                            <span class="title-info">@hainv198dssds</span>
+                            <span class="title-info">@hainv198 vip pro</span>
                         </span>
 
                     </h3>
                     <img class="logo_sidebar" v-bind:src="image_logo" width="35.21" alt="">
-<!--                    <label for="v-sidebar-toggle" class="v-ti-menu-alt"><i class='bx bx-slider'></i></label>-->
+                    <label class="label-mobile" for="v-sidebar-toggle">
+                        <img v-bind:src="icon_close" alt="" width="30">
+                    </label>
                 </div>
                 <!--    sidebar meunu -->
                 <div class="v-sidebar-menu">
@@ -90,7 +92,9 @@ export default {
             image_sidebar_2: require('../image/img_sidebar_2.svg'),
             image_sidebar_3: require('../image/img_sidebar_3.svg'),
             image_sidebar_4: require('../image/img_sidebar_4.svg'),
+            icon_close:require('../image/ic_back_menu_24.svg'),
             active: 'home',
+
         }
     }
 }

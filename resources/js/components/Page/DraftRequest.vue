@@ -33,7 +33,11 @@
                             </button>
                         </th>
                         <th class="text-center border table-secondary">
-                            Action
+                            <button class="sort-button">
+                                <span>
+                                     Action
+                                </span>
+                            </button>
                         </th>
                     </tr>
                     </thead>
@@ -66,8 +70,8 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body" style="color: #ee0802">
-                                        <span>
+                                    <div class="modal-body" >
+                                        <span style="color: #ee0802">
                                             Are you sure you want to delete this item ?
                                         </span>
                                     </div>
