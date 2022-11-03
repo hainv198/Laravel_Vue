@@ -805,13 +805,16 @@
 
 
                         <label class="mb-1 mt-3">Content <span>*</span></label>
-                        <textarea
-                            type="text"
-                            v-model="customer.lastName"
-                            autocomplete="customer.lastName"
-                            placeholder="Answer"
-                            required
-                        />
+                        <div class="textarea-box3">
+                            <textarea
+                                type="text"
+                                v-model="customer.lastName"
+                                autocomplete="customer.lastName"
+                                placeholder="Answer"
+                                required
+                            />
+                        </div>
+
 
                         <!--Approver-->
 
@@ -1002,7 +1005,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </form>
                 </section>
             </transition>
@@ -1121,7 +1123,7 @@ label {
         position: absolute;
         height: 0.8px;
         top: calc(72% - 5.5px);
-        background: #808080;
+        background: #0b8ffc;
         width: 58%;
         left: 149px;
     }
@@ -1281,7 +1283,6 @@ label {
             width: 100%;
             //border-bottom: 1px solid #333333;
             margin-bottom: 1rem;
-            margin-bottom: 1rem;
             .arrow-prev {
                 position: relative;
                 display: inline-block;
@@ -1424,7 +1425,7 @@ label {
     .vs-select__option {
         span {
             color:#0b8ffc;
-            font-size: .9rem;
+            font-size: 14px;
             margin-top: 2px;
         }
     }

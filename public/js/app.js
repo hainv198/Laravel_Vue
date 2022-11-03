@@ -1938,6 +1938,52 @@ __webpack_require__.r(__webpack_exports__);
         return false;
       }
     }
+  },
+  data: function data() {
+    return {
+      status: '',
+      id: "test",
+      name: "test",
+      placeholder: "Status",
+      useRealInput: false,
+      value: "",
+      focused: false,
+      options: [{
+        value: 1,
+        text: "Option 1"
+      }, {
+        value: 2,
+        text: "Option 2"
+      }, {
+        value: 3,
+        text: "Option 3"
+      }]
+    };
+  },
+  methods: {
+    makeActive: function makeActive(item) {
+      this.active = item;
+    },
+    toggleFocus: function toggleFocus() {
+      if (this.useRealInput) {
+        this.$refs.input.focus();
+      } else {
+        this.focused = !this.focused;
+      }
+    },
+    selectOption: function selectOption(value) {
+      if (value !== this.value) {
+        this.value = value;
+        this.$refs.input.value = value;
+        this.toggleFocus();
+      }
+    },
+    findText: function findText(value) {
+      var option = this.options.filter(function (option) {
+        if (option.value === value) return true;
+      })[0];
+      return option === undefined ? "" : option.text;
+    }
   }
 });
 
@@ -1952,8 +1998,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Atomic_Button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Atomic/Button */ "./resources/js/components/Atomic/Button.vue");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NavBar",
+  components: {
+    Button: _Atomic_Button__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       icon_close: __webpack_require__(/*! ../image/icon-close.svg */ "./resources/js/components/image/icon-close.svg")
@@ -2306,18 +2357,63 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Atomic_Button_Approve__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Atomic/Button-Approve */ "./resources/js/components/Atomic/Button-Approve.vue");
+/* harmony import */ var _Atomic_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Atomic/Button */ "./resources/js/components/Atomic/Button.vue");
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RequestDetail",
   components: {
+    Button: _Atomic_Button__WEBPACK_IMPORTED_MODULE_1__["default"],
     ButtonApprove: _Atomic_Button_Approve__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
       sort_name: true,
       sort_creator: true,
-      sort_date: true
+      sort_date: true,
+      status: '',
+      id: "test",
+      name: "test",
+      placeholder: "Status",
+      useRealInput: false,
+      value: "",
+      focused: false,
+      options: [{
+        value: 1,
+        text: "Option 1"
+      }, {
+        value: 2,
+        text: "Option 2"
+      }, {
+        value: 3,
+        text: "Option 3"
+      }]
     };
+  },
+  methods: {
+    makeActive: function makeActive(item) {
+      this.active = item;
+    },
+    toggleFocus: function toggleFocus() {
+      if (this.useRealInput) {
+        this.$refs.input.focus();
+      } else {
+        this.focused = !this.focused;
+      }
+    },
+    selectOption: function selectOption(value) {
+      if (value !== this.value) {
+        this.value = value;
+        this.$refs.input.value = value;
+        this.toggleFocus();
+      }
+    },
+    findText: function findText(value) {
+      var option = this.options.filter(function (option) {
+        if (option.value === value) return true;
+      })[0];
+      return option === undefined ? "" : option.text;
+    }
   }
 });
 
@@ -2608,9 +2704,13 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("button", {
-    "class": [_vm.outline_primary ? "outline_primary" : "outline_danger"]
-  }, [_vm._v("\n    " + _vm._s(_vm.buttonText) + "\n")]);
+  return _c("div", [_c("button", _vm._g({
+    "class": [_vm.outline_primary ? "outline_primary" : "outline_danger"],
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#exampleModalCenter"
+    }
+  }, _vm.$listeners), [_vm._v("\n            " + _vm._s(_vm.buttonText) + "\n        ")])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -4487,7 +4587,9 @@ var render = function render() {
     staticClass: "err-message"
   }, [_c("span", [_vm._v("Error message")])]) : _vm._e(), _vm._v(" "), _c("label", {
     staticClass: "mb-1 mt-3"
-  }, [_vm._v("Content "), _c("span", [_vm._v("*")])]), _vm._v(" "), _c("textarea", {
+  }, [_vm._v("Content "), _c("span", [_vm._v("*")])]), _vm._v(" "), _c("div", {
+    staticClass: "textarea-box3"
+  }, [_c("textarea", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -4509,7 +4611,7 @@ var render = function render() {
         _vm.$set(_vm.customer, "lastName", $event.target.value);
       }
     }
-  }), _vm._v(" "), _c("label", {
+  })]), _vm._v(" "), _c("label", {
     staticClass: "mb-2"
   }, [_vm._v("Approver "), _c("span", [_vm._v("*")])]), _vm._v(" "), _c("div", {
     staticClass: "group-input-create-template"
@@ -6746,17 +6848,37 @@ var staticRenderFns = [function () {
   })])]), _vm._v(" "), _c("div", {
     staticClass: "button-setting"
   }, [_c("a", {
-    staticClass: "button-delegate"
+    staticClass: "button-delegate",
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#exampleModalCenter_Delegate"
+    }
   }, [_vm._v("Delegate")]), _vm._v(" "), _c("a", {
-    staticClass: "button-reject"
+    staticClass: "button-reject",
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#exampleModalCenter_Reject"
+    }
   }, [_vm._v("Reject")]), _vm._v(" "), _c("a", {
-    staticClass: "button-approve"
+    staticClass: "button-approve",
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#exampleModalCenter_Approval"
+    }
   }, [_vm._v("Approve")]), _vm._v(" "), _c("a", {
-    staticClass: "button-withdraw"
+    staticClass: "button-withdraw",
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#exampleModalCenter_Withdraw"
+    }
   }, [_vm._v("Withdraw")]), _vm._v(" "), _c("a", {
     staticClass: "button-cancel"
   }, [_vm._v("Cancel")]), _vm._v(" "), _c("a", {
-    staticClass: "button-submit"
+    staticClass: "button-submit",
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#exampleModalCenter_Submit"
+    }
   }, [_vm._v("Submit")]), _vm._v(" "), _c("a", {
     staticClass: "button-draft"
   }, [_vm._v("Draft")])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("h4", {
@@ -6850,7 +6972,25 @@ var staticRenderFns = [function () {
     staticClass: "bx bx-x"
   })]), _vm._v(" "), _c("i", {
     staticClass: "bx bx-download"
-  })])])])])])]), _vm._v(" "), _c("div", {
+  })])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "button-setting d-flex justify-content-end mr-4",
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#exampleModalCenter_Redraft"
+    }
+  }, [_c("a", {
+    staticClass: "button-delegate"
+  }, [_vm._v("Redraft")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
+    staticClass: "button-setting d-flex justify-content-end mr-4"
+  }, [_c("a", {
+    staticClass: "button-cancel"
+  }, [_vm._v("Cancel")]), _vm._v(" "), _c("a", {
+    staticClass: "button-submit",
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#exampleModalCenter_Submit"
+    }
+  }, [_vm._v("Submit")])])]), _vm._v(" "), _c("div", {
     staticClass: "summary"
   }, [_c("div", {
     staticClass: "bday-card"
@@ -6921,7 +7061,285 @@ var staticRenderFns = [function () {
     staticClass: "activities-item"
   }, [_c("ul", [_c("li", [_c("span", [_vm._v("1/1/2100")])]), _vm._v(" "), _c("li", [_c("b", [_vm._v("Nguyen Van Hai")])]), _vm._v(" "), _c("li", [_c("span", [_vm._v("Created this request")])])])]), _vm._v(" "), _c("div", {
     staticClass: "activities-item"
-  }, [_c("ul", [_c("li", [_c("span", [_vm._v("1/1/2100")])]), _vm._v(" "), _c("li", [_c("b", [_vm._v("Nguyen Van Hai")])]), _vm._v(" "), _c("li", [_c("span", [_vm._v("Created this request")])])])])])])])])])]);
+  }, [_c("ul", [_c("li", [_c("span", [_vm._v("1/1/2100")])]), _vm._v(" "), _c("li", [_c("b", [_vm._v("Nguyen Van Hai")])]), _vm._v(" "), _c("li", [_c("span", [_vm._v("Created this request")])])])])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "exampleModalCenter_Reject",
+      tabindex: "-1",
+      role: "dialog",
+      "aria-labelledby": "exampleModalCenterTitle",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered",
+    attrs: {
+      role: "document"
+    }
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title text-center",
+    attrs: {
+      id: "exampleModalLongTitle"
+    }
+  }, [_vm._v("Reject the request")]), _vm._v(" "), _c("button", {
+    staticClass: "close",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  }, [_c("span", {
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body"
+  }, [_c("span", {
+    staticClass: "description-model"
+  }, [_vm._v("Reason for rejection")]), _vm._v(" "), _c("span", {
+    staticClass: "err-message-model"
+  }, [_vm._v("*")]), _vm._v(" "), _c("div", {
+    staticClass: "modal-reject"
+  }, [_c("textarea", {
+    attrs: {
+      type: "text",
+      placeholder: "Enter Reason"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "btn btn-secondary",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("Cancel")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Ok")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "exampleModalCenter_Delegate",
+      tabindex: "-1",
+      role: "dialog",
+      "aria-labelledby": "exampleModalCenterTitle",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered",
+    attrs: {
+      role: "document"
+    }
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title text-center",
+    attrs: {
+      id: "exampleModalLongTitle"
+    }
+  }, [_vm._v("Delegate approval")]), _vm._v(" "), _c("button", {
+    staticClass: "close",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  }, [_c("span", {
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body"
+  }, [_c("div", {
+    staticClass: "modal-reject"
+  }, [_c("textarea", {
+    attrs: {
+      type: "text",
+      placeholder: "Enter Description"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "btn btn-secondary",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("Cancel")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Ok")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "exampleModalCenter_Approval",
+      tabindex: "-1",
+      role: "dialog",
+      "aria-labelledby": "exampleModalCenterTitle",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered",
+    attrs: {
+      role: "document"
+    }
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title text-center",
+    attrs: {
+      id: "exampleModalLongTitle"
+    }
+  }, [_vm._v("Approve The Request")]), _vm._v(" "), _c("button", {
+    staticClass: "close",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  }, [_c("span", {
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body"
+  }, [_c("span", {
+    staticClass: "description-model"
+  }, [_vm._v("Reason for Approval")]), _vm._v(" "), _c("span", {
+    staticClass: "err-message-model"
+  }, [_vm._v("*")]), _vm._v(" "), _c("div", {
+    staticClass: "modal-reject"
+  }, [_c("textarea", {
+    attrs: {
+      type: "text",
+      placeholder: "Enter Reason"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "btn btn-secondary",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("Cancel")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Ok")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "exampleModalCenter_Submit",
+      tabindex: "-1",
+      role: "dialog",
+      "aria-labelledby": "exampleModalCenterTitle",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered",
+    attrs: {
+      role: "document"
+    }
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title text-center",
+    attrs: {
+      id: "exampleModalLongTitle"
+    }
+  }, [_vm._v("Redraft Confirmation")]), _vm._v(" "), _c("button", {
+    staticClass: "close",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  }, [_c("span", {
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body"
+  }, [_c("span", {
+    staticClass: "err-message-model"
+  }, [_vm._v("You can only redraft request one time. Do you want to continue?")])]), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "btn btn-secondary",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("Cancel")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Ok")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "exampleModalCenter_Withdraw",
+      tabindex: "-1",
+      role: "dialog",
+      "aria-labelledby": "exampleModalCenterTitle",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered",
+    attrs: {
+      role: "document"
+    }
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title text-center",
+    attrs: {
+      id: "exampleModalLongTitle"
+    }
+  }, [_vm._v("Warning")]), _vm._v(" "), _c("button", {
+    staticClass: "close",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  }, [_c("span", {
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body"
+  }, [_c("span", {
+    staticClass: "err-message-model"
+  }, [_vm._v("\n                            Your request will not be able to continue the approval process. "), _c("br"), _vm._v("\n                            Are you sure you want to withdraw?\n                        ")])]), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "btn btn-secondary",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("Cancel")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Ok")])])])])])]);
 }];
 render._withStripped = true;
 
@@ -13724,7 +14142,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "/*.vs-select-content {\n    width: 100%;\n    max-width: none;\n}*/\nlabel {\n  font-size: 14px;\n}\nlabel span {\n  font-size: 12px;\n  color: #d50000;\n  margin-left: 12px;\n}\n\n/*.description-form {\n   left: 55px;\n    color: #0b8ffc;\n    top:6px;\n    position: absolute;\n}*/\n.description-form-step-2 {\n  right: 210px;\n  color: #333333;\n  top: 8.8px;\n  position: absolute;\n}\n.description-form-step-2 span {\n  font-size: 16px;\n}\n.description-form-step-2::before {\n  z-index: 0;\n  content: \"\";\n  display: block;\n  position: absolute;\n  height: 0.8px;\n  top: calc(72% - 5.5px);\n  background: #808080;\n  width: 58%;\n  left: 149px;\n}\n\n/*.description-form-step-3 {\n    right: 60px;\n    font-weight: bold;\n    color: #333333;\n    top: -0.2px;\n    display: flex;\n    text-align: center;\n    position: absolute;\n    height: 40px;\n    width: 40px;\n    border: 1px solid;\n    border-radius: 50%;\n    flex-direction: column;\n    justify-content: center;\n\n}*/\n/*.register-stepper .step .step-number-3 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 2;\n    width: 40px;\n    height: 50px;\n    margin-top: -9px;\n    color: #333;\n    background-color: white;\n}*/\n.register-icon {\n  display: flex;\n  background: #ffffff;\n  border-radius: 2rem;\n  width: 50px;\n  height: 50px;\n  padding: 1rem;\n  margin: -50px auto 20px;\n  box-shadow: 20px 20px 60px #153004, -20px -20px 60px #1d4006;\n}\n.register-icon-item {\n  width: 100%;\n}\n.register-title {\n  font-weight: 300;\n  font-size: 1.5rem;\n  text-transform: uppercase;\n  letter-spacing: 0.2rem;\n  text-align: center;\n  color: #ffffff;\n  padding: 0 2rem;\n  margin-top: 2rem;\n}\n.register-stepper {\n  display: flex;\n  justify-content: space-between;\n  width: 100%;\n  position: relative;\n  margin: 0 auto 2.5em;\n}\n.register-stepper::before {\n  z-index: 0;\n  content: \"\";\n  display: block;\n  position: absolute;\n  height: 0.5px;\n  top: calc(50% - 2px);\n  background: #0b8ffc;\n  width: 15%;\n  left: 231px;\n}\n.register-stepper .step {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 2;\n  width: 40px;\n  height: 40px;\n  border: 1px solid #333;\n  color: #333;\n  background-color: white;\n  border-radius: 50%;\n  min-width: 25px;\n  min-height: 25px;\n  line-height: 20px;\n  font-size: 16px;\n}\n.register-stepper .step-active {\n  color: #0b8ffc;\n  background-color: white;\n  border-color: #0b8ffc;\n}\n.register-stepper .step-done {\n  color: #0b8ffc;\n  border-color: #0b8ffc;\n}\n.register-stepper .step-number {\n  font-weight: 800;\n  color: #0b8ffc;\n  line-height: 1;\n  font-size: 18px;\n  vertical-align: middle;\n}\n.register .form-group {\n  display: flex;\n  flex-flow: row;\n  justify-content: flex-start;\n  align-items: baseline;\n  margin-bottom: 32px;\n}\n.register .form-group label {\n  text-align: left;\n  line-height: 1.1;\n  padding-bottom: 0.5rem;\n}\n.register .form-group.cta-step {\n  color: #ffffff;\n  justify-content: space-between;\n  border-bottom: 1px solid #333333 !important;\n}\n.register .form-group.new-password {\n  margin-top: 2rem;\n}\n.register .form .cta-color,\n.register .form .cta-color input,\n.register .form .cta-color .link_text {\n  text-decoration: none;\n}\n.register .form .cta-color .link_wrap {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  width: 100%;\n  margin-bottom: 1rem;\n  margin-bottom: 1rem;\n}\n.register .form .cta-color .link_wrap .arrow-prev {\n  position: relative;\n  display: inline-block;\n  transform: translate(0);\n  transition: transform 0.3s ease-in-out;\n}\n.register .form .cta-color .link_wrap:hover .arrow-prev {\n  transform: translate(-5px);\n}\n.register input[type=submit],\n.register input[type=text],\n.register input[type=tel],\n.register input[type=email],\n.register input[type=date] {\n  -webkit-appearance: none;\n  border: 0;\n  border-radius: 6px;\n  padding: 12px;\n  background-color: #F4F7F8;\n  width: 100%;\n}\n.register input[type=submit]::-moz-placeholder, .register input[type=text]::-moz-placeholder, .register input[type=tel]::-moz-placeholder, .register input[type=email]::-moz-placeholder, .register input[type=date]::-moz-placeholder {\n  font-size: 0.8rem;\n}\n.register input[type=submit]::placeholder,\n.register input[type=text]::placeholder,\n.register input[type=tel]::placeholder,\n.register input[type=email]::placeholder,\n.register input[type=date]::placeholder {\n  font-size: 0.8rem;\n}\n.register input[type=submit] {\n  cursor: pointer;\n  position: relative;\n  width: 100px;\n  font-size: 14px;\n  background: none;\n  color: #ffffff;\n  background: #007BFF;\n}\n.register input[type=submit]:hover, .register input[type=submit]:focus {\n  box-shadow: unset;\n  transform: none;\n}\n.register input[type=submit]::after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  right: 0;\n  top: 50%;\n  border-radius: 50px;\n  border: 1px solid;\n  height: 25px;\n  width: 25px;\n  margin-top: -14px;\n  pointer-events: none;\n  transition: all 0.33s cubic-bezier(0.12, 0.75, 0.4, 1);\n}\n.register-btn input {\n  color: #ffffff;\n  font-size: 1.2rem;\n  font-weight: 800;\n  line-height: 1;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n.register .slide-fade-enter-active {\n  transition: all 0.3s ease;\n}\n.register .slide-fade-leave-active {\n  display: none;\n  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.register .slide-fade-enter, .register .slide-fade-leave-to {\n  transform: translateX(10px);\n  opacity: 0;\n}\n.link_text {\n  border: 1px solid #0b8ffc;\n  padding: 8px;\n  color: #0b8ffc;\n  font-size: 14px;\n  border-radius: 5px;\n}\n.button-group {\n  display: flex;\n  gap: 15px;\n}\n.button-group .draft {\n  border: 1px solid #0b8ffc;\n  padding: 8px;\n  color: #0b8ffc !important;\n  border-radius: 5px;\n  font-size: 14px;\n  cursor: pointer;\n}\n.button-group .draft:hover {\n  color: #0b8ffc !important;\n}\n.button-group .submit-form {\n  border: 1px solid #0b8ffc;\n  padding: 8px;\n  color: #ffffff;\n  font-size: 14px;\n  background: #0b8ffc;\n  border-radius: 5px;\n  cursor: pointer;\n}\n.congrats {\n  background: white;\n  color: blue;\n  padding: 4rem;\n  text-align: center;\n}\n.congrats-subtitle {\n  line-height: 1.3;\n}\n.congrats-subtitle strong {\n  font-size: 2rem;\n}\n.vs-select__options__content .vs-select__option span {\n  color: #0b8ffc;\n  font-size: 0.9rem;\n  margin-top: 2px;\n}\n\n/*.vs-select__options {\n    background: #f30;\n}*/\n.vs-select__options.vs-component--primary {\n  z-index: 998;\n}\ntextarea {\n  width: 100%;\n  margin-top: 7px;\n  border: none;\n  border-radius: 10px;\n}\ntextarea:focus-visible {\n  border-radius: 3px;\n  outline: none;\n}\n.input-filter-result .input-right-box-2 .create-radio {\n  background: #f3f3f3;\n  border-radius: 10px;\n}\n.input-filter-result .input-right-box-2 .create-radio .group-box {\n  padding: 20px;\n}\n.input-filter-result .input-right-box-2 .create-radio .group-box .select-radio div {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.input-filter-result .input-right-box-2 .create-radio .group-box .select-radio div input {\n  height: 16px;\n  width: 16px;\n}\n.input-filter-result .input-right-box-2 .create-radio .group-box .select-radio span {\n  font-size: 15px;\n  color: #333333;\n}\n.input-filter-result .input-right-box-2 .v-input-right-1 {\n  border-radius: 10px;\n  background: #f3f3f3;\n  margin-bottom: 10px;\n  padding: 10px;\n  border: none;\n  width: 100%;\n}\n.input-filter-result .input-right-box-2 .v-input-right-1::-moz-placeholder {\n  font-size: 14px !important;\n}\n.input-filter-result .input-right-box-2 .v-input-right-1::placeholder {\n  font-size: 14px !important;\n}\n.input-filter-result .input-right-box-2 .v-input-right-2 {\n  border-radius: 10px;\n  background: #f3f3f3;\n  margin-bottom: 10px;\n  padding: 12px;\n  border: none;\n  width: 100%;\n}\n.input-filter-result .input-right-box-2 .v-input-right-2::-moz-placeholder {\n  font-size: 14px !important;\n}\n.input-filter-result .input-right-box-2 .v-input-right-2::placeholder {\n  font-size: 14px !important;\n}\n.input-filter-result .input-right-box-2 .v-input-right-3 {\n  width: 100%;\n  border: none;\n  font-size: 14px;\n  padding: 10px;\n  border-radius: 10px;\n  background: #f3f3f3;\n  color: #464646;\n}\n.input-filter-result .input-right-box-2 .v-input-right-chose-file {\n  background-color: #f3f3f3;\n  width: 100%;\n  height: 150px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.input-filter-result .input-right-box-2 .v-input-right-chose-file::file-selector-button {\n  margin-left: auto;\n  margin-right: auto;\n  color: dodgerblue;\n  padding: 0.5em;\n  border: 1px dashed #2d995b;\n  border-radius: 3px;\n}\n.input-filter-result .input-right-box-2-file {\n  width: 100%;\n}\n.input-filter-result .input-right-box-2-file .upload-file {\n  text-align: center;\n  padding: 20px;\n  border: 1px dashed #2d995b;\n  border-radius: 10px;\n}\n.input-filter-result .input-right-box-2-file span {\n  font-size: 13px;\n  margin-top: 15px;\n}\n.group-icon-box2 {\n  margin-top: 20px;\n  gap: 12px;\n}\n.group-icon-box2 .input-check-box-2 {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n}\n.group-icon-box2 label {\n  color: #0b8ffc;\n}\n.group-icon-box2 input {\n  height: 15px;\n  width: 15px;\n}\n.group-icon-box2 .icon-duplication {\n  font-size: 1.4rem;\n  color: #0b8ffc;\n  cursor: pointer;\n}\n.group-icon-box2 .icon-delete-handle {\n  font-size: 1.4rem;\n  color: #ff3300;\n  cursor: pointer;\n}\n.form .err-message {\n  margin: unset;\n  color: #d0211c;\n}\n.form .err-message span {\n  color: red !important;\n  font-size: 12px;\n}\n.btn-add-new {\n  display: flex;\n  justify-content: end;\n  padding: 15px;\n}\n.btn-add-new span {\n  font-size: 14px;\n  cursor: pointer;\n  color: #0b8ffc;\n}\n.group-input-create-template {\n  padding: 15px;\n  margin: 4px;\n  background: #F4F7F8;\n  border-radius: 10px;\n}\n.group-input-create-template .add-new-template .Add-new {\n  color: #0b8ffc !important;\n  font-size: 14px;\n}\n.group-input-create-template .role-check {\n  display: flex;\n  gap: 10px;\n  padding: 5px;\n}\n.vs-select__input {\n  font-size: 14px !important;\n}", ""]);
+exports.push([module.i, "/*.vs-select-content {\n    width: 100%;\n    max-width: none;\n}*/\nlabel {\n  font-size: 14px;\n}\nlabel span {\n  font-size: 12px;\n  color: #d50000;\n  margin-left: 12px;\n}\n\n/*.description-form {\n   left: 55px;\n    color: #0b8ffc;\n    top:6px;\n    position: absolute;\n}*/\n.description-form-step-2 {\n  right: 210px;\n  color: #333333;\n  top: 8.8px;\n  position: absolute;\n}\n.description-form-step-2 span {\n  font-size: 16px;\n}\n.description-form-step-2::before {\n  z-index: 0;\n  content: \"\";\n  display: block;\n  position: absolute;\n  height: 0.8px;\n  top: calc(72% - 5.5px);\n  background: #0b8ffc;\n  width: 58%;\n  left: 149px;\n}\n\n/*.description-form-step-3 {\n    right: 60px;\n    font-weight: bold;\n    color: #333333;\n    top: -0.2px;\n    display: flex;\n    text-align: center;\n    position: absolute;\n    height: 40px;\n    width: 40px;\n    border: 1px solid;\n    border-radius: 50%;\n    flex-direction: column;\n    justify-content: center;\n\n}*/\n/*.register-stepper .step .step-number-3 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    z-index: 2;\n    width: 40px;\n    height: 50px;\n    margin-top: -9px;\n    color: #333;\n    background-color: white;\n}*/\n.register-icon {\n  display: flex;\n  background: #ffffff;\n  border-radius: 2rem;\n  width: 50px;\n  height: 50px;\n  padding: 1rem;\n  margin: -50px auto 20px;\n  box-shadow: 20px 20px 60px #153004, -20px -20px 60px #1d4006;\n}\n.register-icon-item {\n  width: 100%;\n}\n.register-title {\n  font-weight: 300;\n  font-size: 1.5rem;\n  text-transform: uppercase;\n  letter-spacing: 0.2rem;\n  text-align: center;\n  color: #ffffff;\n  padding: 0 2rem;\n  margin-top: 2rem;\n}\n.register-stepper {\n  display: flex;\n  justify-content: space-between;\n  width: 100%;\n  position: relative;\n  margin: 0 auto 2.5em;\n}\n.register-stepper::before {\n  z-index: 0;\n  content: \"\";\n  display: block;\n  position: absolute;\n  height: 0.5px;\n  top: calc(50% - 2px);\n  background: #0b8ffc;\n  width: 15%;\n  left: 231px;\n}\n.register-stepper .step {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 2;\n  width: 40px;\n  height: 40px;\n  border: 1px solid #333;\n  color: #333;\n  background-color: white;\n  border-radius: 50%;\n  min-width: 25px;\n  min-height: 25px;\n  line-height: 20px;\n  font-size: 16px;\n}\n.register-stepper .step-active {\n  color: #0b8ffc;\n  background-color: white;\n  border-color: #0b8ffc;\n}\n.register-stepper .step-done {\n  color: #0b8ffc;\n  border-color: #0b8ffc;\n}\n.register-stepper .step-number {\n  font-weight: 800;\n  color: #0b8ffc;\n  line-height: 1;\n  font-size: 18px;\n  vertical-align: middle;\n}\n.register .form-group {\n  display: flex;\n  flex-flow: row;\n  justify-content: flex-start;\n  align-items: baseline;\n  margin-bottom: 32px;\n}\n.register .form-group label {\n  text-align: left;\n  line-height: 1.1;\n  padding-bottom: 0.5rem;\n}\n.register .form-group.cta-step {\n  color: #ffffff;\n  justify-content: space-between;\n  border-bottom: 1px solid #333333 !important;\n}\n.register .form-group.new-password {\n  margin-top: 2rem;\n}\n.register .form .cta-color,\n.register .form .cta-color input,\n.register .form .cta-color .link_text {\n  text-decoration: none;\n}\n.register .form .cta-color .link_wrap {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  width: 100%;\n  margin-bottom: 1rem;\n}\n.register .form .cta-color .link_wrap .arrow-prev {\n  position: relative;\n  display: inline-block;\n  transform: translate(0);\n  transition: transform 0.3s ease-in-out;\n}\n.register .form .cta-color .link_wrap:hover .arrow-prev {\n  transform: translate(-5px);\n}\n.register input[type=submit],\n.register input[type=text],\n.register input[type=tel],\n.register input[type=email],\n.register input[type=date] {\n  -webkit-appearance: none;\n  border: 0;\n  border-radius: 6px;\n  padding: 12px;\n  background-color: #F4F7F8;\n  width: 100%;\n}\n.register input[type=submit]::-moz-placeholder, .register input[type=text]::-moz-placeholder, .register input[type=tel]::-moz-placeholder, .register input[type=email]::-moz-placeholder, .register input[type=date]::-moz-placeholder {\n  font-size: 0.8rem;\n}\n.register input[type=submit]::placeholder,\n.register input[type=text]::placeholder,\n.register input[type=tel]::placeholder,\n.register input[type=email]::placeholder,\n.register input[type=date]::placeholder {\n  font-size: 0.8rem;\n}\n.register input[type=submit] {\n  cursor: pointer;\n  position: relative;\n  width: 100px;\n  font-size: 14px;\n  background: none;\n  color: #ffffff;\n  background: #007BFF;\n}\n.register input[type=submit]:hover, .register input[type=submit]:focus {\n  box-shadow: unset;\n  transform: none;\n}\n.register input[type=submit]::after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  right: 0;\n  top: 50%;\n  border-radius: 50px;\n  border: 1px solid;\n  height: 25px;\n  width: 25px;\n  margin-top: -14px;\n  pointer-events: none;\n  transition: all 0.33s cubic-bezier(0.12, 0.75, 0.4, 1);\n}\n.register-btn input {\n  color: #ffffff;\n  font-size: 1.2rem;\n  font-weight: 800;\n  line-height: 1;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n.register .slide-fade-enter-active {\n  transition: all 0.3s ease;\n}\n.register .slide-fade-leave-active {\n  display: none;\n  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.register .slide-fade-enter, .register .slide-fade-leave-to {\n  transform: translateX(10px);\n  opacity: 0;\n}\n.link_text {\n  border: 1px solid #0b8ffc;\n  padding: 8px;\n  color: #0b8ffc;\n  font-size: 14px;\n  border-radius: 5px;\n}\n.button-group {\n  display: flex;\n  gap: 15px;\n}\n.button-group .draft {\n  border: 1px solid #0b8ffc;\n  padding: 8px;\n  color: #0b8ffc !important;\n  border-radius: 5px;\n  font-size: 14px;\n  cursor: pointer;\n}\n.button-group .draft:hover {\n  color: #0b8ffc !important;\n}\n.button-group .submit-form {\n  border: 1px solid #0b8ffc;\n  padding: 8px;\n  color: #ffffff;\n  font-size: 14px;\n  background: #0b8ffc;\n  border-radius: 5px;\n  cursor: pointer;\n}\n.congrats {\n  background: white;\n  color: blue;\n  padding: 4rem;\n  text-align: center;\n}\n.congrats-subtitle {\n  line-height: 1.3;\n}\n.congrats-subtitle strong {\n  font-size: 2rem;\n}\n.vs-select__options__content .vs-select__option span {\n  color: #0b8ffc;\n  font-size: 14px;\n  margin-top: 2px;\n}\n\n/*.vs-select__options {\n    background: #f30;\n}*/\n.vs-select__options.vs-component--primary {\n  z-index: 998;\n}\ntextarea {\n  width: 100%;\n  margin-top: 7px;\n  border: none;\n  border-radius: 10px;\n}\ntextarea:focus-visible {\n  border-radius: 3px;\n  outline: none;\n}\n.input-filter-result .input-right-box-2 .create-radio {\n  background: #f3f3f3;\n  border-radius: 10px;\n}\n.input-filter-result .input-right-box-2 .create-radio .group-box {\n  padding: 20px;\n}\n.input-filter-result .input-right-box-2 .create-radio .group-box .select-radio div {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.input-filter-result .input-right-box-2 .create-radio .group-box .select-radio div input {\n  height: 16px;\n  width: 16px;\n}\n.input-filter-result .input-right-box-2 .create-radio .group-box .select-radio span {\n  font-size: 15px;\n  color: #333333;\n}\n.input-filter-result .input-right-box-2 .v-input-right-1 {\n  border-radius: 10px;\n  background: #f3f3f3;\n  margin-bottom: 10px;\n  padding: 10px;\n  border: none;\n  width: 100%;\n}\n.input-filter-result .input-right-box-2 .v-input-right-1::-moz-placeholder {\n  font-size: 14px !important;\n}\n.input-filter-result .input-right-box-2 .v-input-right-1::placeholder {\n  font-size: 14px !important;\n}\n.input-filter-result .input-right-box-2 .v-input-right-2 {\n  border-radius: 10px;\n  background: #f3f3f3;\n  margin-bottom: 10px;\n  padding: 12px;\n  border: none;\n  width: 100%;\n}\n.input-filter-result .input-right-box-2 .v-input-right-2::-moz-placeholder {\n  font-size: 14px !important;\n}\n.input-filter-result .input-right-box-2 .v-input-right-2::placeholder {\n  font-size: 14px !important;\n}\n.input-filter-result .input-right-box-2 .v-input-right-3 {\n  width: 100%;\n  border: none;\n  font-size: 14px;\n  padding: 10px;\n  border-radius: 10px;\n  background: #f3f3f3;\n  color: #464646;\n}\n.input-filter-result .input-right-box-2 .v-input-right-chose-file {\n  background-color: #f3f3f3;\n  width: 100%;\n  height: 150px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.input-filter-result .input-right-box-2 .v-input-right-chose-file::file-selector-button {\n  margin-left: auto;\n  margin-right: auto;\n  color: dodgerblue;\n  padding: 0.5em;\n  border: 1px dashed #2d995b;\n  border-radius: 3px;\n}\n.input-filter-result .input-right-box-2-file {\n  width: 100%;\n}\n.input-filter-result .input-right-box-2-file .upload-file {\n  text-align: center;\n  padding: 20px;\n  border: 1px dashed #2d995b;\n  border-radius: 10px;\n}\n.input-filter-result .input-right-box-2-file span {\n  font-size: 13px;\n  margin-top: 15px;\n}\n.group-icon-box2 {\n  margin-top: 20px;\n  gap: 12px;\n}\n.group-icon-box2 .input-check-box-2 {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n}\n.group-icon-box2 label {\n  color: #0b8ffc;\n}\n.group-icon-box2 input {\n  height: 15px;\n  width: 15px;\n}\n.group-icon-box2 .icon-duplication {\n  font-size: 1.4rem;\n  color: #0b8ffc;\n  cursor: pointer;\n}\n.group-icon-box2 .icon-delete-handle {\n  font-size: 1.4rem;\n  color: #ff3300;\n  cursor: pointer;\n}\n.form .err-message {\n  margin: unset;\n  color: #d0211c;\n}\n.form .err-message span {\n  color: red !important;\n  font-size: 12px;\n}\n.btn-add-new {\n  display: flex;\n  justify-content: end;\n  padding: 15px;\n}\n.btn-add-new span {\n  font-size: 14px;\n  cursor: pointer;\n  color: #0b8ffc;\n}\n.group-input-create-template {\n  padding: 15px;\n  margin: 4px;\n  background: #F4F7F8;\n  border-radius: 10px;\n}\n.group-input-create-template .add-new-template .Add-new {\n  color: #0b8ffc !important;\n  font-size: 14px;\n}\n.group-input-create-template .role-check {\n  display: flex;\n  gap: 10px;\n  padding: 5px;\n}\n.vs-select__input {\n  font-size: 14px !important;\n}", ""]);
 
 // exports
 

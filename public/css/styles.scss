@@ -1777,7 +1777,7 @@ input[type=date], input[type=datetime-local], input[type=month], input[type=time
 
 }
 
-/*================End Request List <User> Mobile ================*/
+/* ================ End Request List <User> Mobile ================*/
 
 /*================ Setting Mobile ================*/
 
@@ -1794,3 +1794,24 @@ input[type=date], input[type=datetime-local], input[type=month], input[type=time
 
 
 /*================End Setting Mobile ================*/
+
+
+/*=================Add New ================*/
+.textarea-box3 {
+    background-color: #F4F7F8;
+    border-radius: 10px;
+}
+.textarea-box3 textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    height: 128px;
+}
+.textarea-box3 textarea::placeholder {
+    font-size: 14px;
+}
+
+.modal-reject textarea {
+    background-color: #f3f3f3;
+    padding: 12px;
+}

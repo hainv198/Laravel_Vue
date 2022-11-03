@@ -32,8 +32,10 @@
 </template>
 
 <script>
+import Button from "../Atomic/Button";
 export default {
     name: "NavBar",
+    components:{Button},
     data() {
         return {
             icon_close:require('../image/icon-close.svg')

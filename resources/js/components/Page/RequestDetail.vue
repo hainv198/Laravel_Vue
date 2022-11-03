@@ -13,12 +13,12 @@
                             </span>
                         </div>
                         <div class="button-setting">
-                            <a class="button-delegate">Delegate</a>
-                            <a class="button-reject">Reject</a>
-                            <a class="button-approve">Approve</a>
-                            <a class="button-withdraw">Withdraw</a>
+                            <a class="button-delegate" data-toggle="modal" data-target="#exampleModalCenter_Delegate">Delegate</a>
+                            <a class="button-reject" data-toggle="modal" data-target="#exampleModalCenter_Reject">Reject</a>
+                            <a class="button-approve" data-toggle="modal" data-target="#exampleModalCenter_Approval">Approve</a>
+                            <a class="button-withdraw" data-toggle="modal" data-target="#exampleModalCenter_Withdraw">Withdraw</a>
                             <a class="button-cancel">Cancel</a>
-                            <a class="button-submit">Submit</a>
+                            <a class="button-submit" data-toggle="modal" data-target="#exampleModalCenter_Submit">Submit</a>
                             <a class="button-draft">Draft</a>
                         </div>
 
@@ -134,8 +134,17 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
+                    <div class="button-setting d-flex justify-content-end mr-4" data-toggle="modal" data-target="#exampleModalCenter_Redraft">
+                        <a class="button-delegate">Redraft</a>
+                    </div>
+                    <br>
+                    <div class="button-setting d-flex justify-content-end mr-4">
+                        <a class="button-cancel">Cancel</a>
+                        <a class="button-submit" data-toggle="modal" data-target="#exampleModalCenter_Submit">Submit</a>
+                    </div>
+
+                </div>
                 <div class="summary">
                     <div class="bday-card">
                         <div class="card-approver">
@@ -216,22 +225,185 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
+        <div class="modal fade" id="exampleModalCenter_Reject" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="exampleModalLongTitle">Reject the request</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <span class="description-model">Reason for rejection</span>
+                        <span class="err-message-model">*</span>
+                        <div class="modal-reject">
+                            <textarea type="text"
+                                      placeholder="Enter Reason"
+                            />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Ok</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal fade" id="exampleModalCenter_Delegate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="exampleModalLongTitle">Delegate approval</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-reject">
+                            <textarea type="text"
+                                      placeholder="Enter Description"
+                            />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Ok</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal fade" id="exampleModalCenter_Approval" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="exampleModalLongTitle">Approve The Request</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <span class="description-model">Reason for Approval</span>
+                        <span class="err-message-model">*</span>
+                        <div class="modal-reject">
+                            <textarea type="text"
+                                      placeholder="Enter Reason"
+                            />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Ok</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal fade" id="exampleModalCenter_Submit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="exampleModalLongTitle">Redraft Confirmation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <span class="err-message-model">You can only redraft request one time. Do you want to continue?</span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Ok</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal fade" id="exampleModalCenter_Withdraw" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="exampleModalLongTitle">Warning</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <span class="err-message-model">
+                            Your request will not be able to continue the approval process. <br>
+                            Are you sure you want to withdraw?
+                        </span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Ok</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </section>
 </template>
 
 <script>
 import ButtonApprove from "../Atomic/Button-Approve";
+import Button from "../Atomic/Button";
 export default {
     name: "RequestDetail",
-    components: {ButtonApprove},
+    components: {Button, ButtonApprove},
     data() {
         return {
             sort_name:true,
             sort_creator:true,
             sort_date:true,
+            status:'',
+
+            id: "test",
+            name: "test",
+            placeholder: "Status",
+            useRealInput: false,
+            value: "",
+            focused: false,
+            options: [
+                { value: 1, text: "Option 1" },
+                { value: 2, text: "Option 2" },
+                { value: 3, text: "Option 3" },
+            ],
         }
+    },
+    methods: {
+        makeActive: function (item) {
+            this.active = item;
+        },
+
+        toggleFocus() {
+            if (this.useRealInput) {
+                this.$refs.input.focus();
+            } else {
+                this.focused = !this.focused;
+            }
+        },
+        selectOption(value) {
+            if (value !== this.value) {
+                this.value = value;
+                this.$refs.input.value = value;
+                this.toggleFocus();
+            }
+        },
+        findText(value) {
+            const option = this.options.filter((option) => {
+                if (option.value === value) return true;
+            })[0];
+            return option === undefined ? "" : option.text;
+        },
     }
 }
 </script>
